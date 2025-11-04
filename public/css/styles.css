@@ -1,0 +1,6 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+header { display:flex; justify-content:space-between; align-items:center; }
+nav a { margin-right: 8px; }
+.flash { padding:10px; border-radius:4px; margin-bottom:12px; }
+.flash-error { background:#f8d7da; color:#842029; }
+.flash-success { background:#d1e7dd; color:#0f5132; }

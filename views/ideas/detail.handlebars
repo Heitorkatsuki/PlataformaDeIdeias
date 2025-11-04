@@ -1,0 +1,32 @@
+<h2>{{idea.title}}</h2>
+<p>Categoria: {{idea.category}}</p>
+<p>{{idea.description}}</p>
+<p>Autor: {{idea.author.name}} ({{idea.author.email}})</p>
+<p>Votos: {{voteCount}}</p>
+
+{{#if currentUser}}
+  {{#if userVoted}}
+    <form action="/votes/unvote" method="post">
+      <input type="hidden" name="_csrf" value="{{csrfToken}}">
+      <input type="hidden" name="ideaId" value="{{idea._id}}">
+      <button type="submit">Remover voto</button>
+    </form>
+  {{else}}
+    <form action="/votes/vote" method="post">
+      <input type="hidden" name="_csrf" value="{{csrfToken}}">
+      <input type="hidden" name="ideaId" value="{{idea._id}}">
+      <button type="submit">Votar</button>
+    </form>
+  {{/if}}
+
+  {{#ifEquals idea.author._id ../currentUser._id}}
+    <a href="/ideas/edit/{{idea._id}}">Editar</a>
+    <form action="/ideas/delete" method="post" style="display:inline;">
+      <input type="hidden" name="_csrf" value="{{csrfToken}}">
+      <input type="hidden" name="id" value="{{idea._id}}">
+      <button type="submit">Excluir</button>
+    </form>
+  {{/ifEquals}}
+{{else}}
+  <p><a href="/login">Entre</a> para votar.</p>
+{{/if}}

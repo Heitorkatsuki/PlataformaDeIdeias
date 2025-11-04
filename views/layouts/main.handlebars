@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Plataforma de Ideias</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>💡 Plataforma de Ideias</h1>
+    <nav>
+      <a href="/ideas">Ideias</a>
+      {{#if currentUser}}
+        <a href="/ideas/create">Criar</a>
+        <a href="/ideas/my/ideas">Meu Perfil</a>
+        <form style="display:inline" action="/logout" method="post">
+          <input type="hidden" name="_csrf" value="{{csrfToken}}">
+          <button type="submit">Sair</button>
+        </form>
+        <span>Olá, {{currentUser.name}}</span>
+      {{else}}
+        <a href="/login">Login</a> | <a href="/register">Registrar</a>
+      {{/if}}
+    </nav>
+  </header>
+
+  <main>
+    {{> flash }}
+    {{{ body }}}
+  </main>
+</body>
+</html>

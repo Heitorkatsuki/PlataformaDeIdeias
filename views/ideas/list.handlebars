@@ -1,0 +1,17 @@
+<h2>Todas as Ideias (ordenadas por votos)</h2>
+{{#if ideas.length}}
+  <ul>
+    {{#each ideas}}
+      <li>
+        <a href="/ideas/{{this._id}}"><strong>{{this.title}}</strong></a>
+        -
+        {{this.category}}
+        - Votos:
+        {{this.voteCount}}
+        <p>{{this.description}}</p>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>Nenhuma ideia ainda. Seja o primeiro a criar!</p>
+{{/if}}
