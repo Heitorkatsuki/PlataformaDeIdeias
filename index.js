@@ -29,12 +29,15 @@ mongoose.connection.on('error', (err) => console.error('MongoDB error:', err));
 
 // ----- view engine -----
 const hbs = exphbs.create({
-  extname: '.handlebars',
-  defaultLayout: 'main',
-  layoutsDir: path.join(__dirname, 'views', 'layouts'),
-  partialsDir: path.join(__dirname, 'views', 'partials'),
+  extname: ".handlebars",
+  defaultLayout: "main",
+  layoutsDir: path.join(__dirname, "views", "layouts"),
+  partialsDir: path.join(__dirname, "views", "partials"),
   helpers: {
     ifEquals(a, b, opts) {
+      if (a === undefined || a === null || b === undefined || b === null) {
+        return a === b ? opts.fn(this) : opts.inverse(this);
+      }
       return a.toString() === b.toString() ? opts.fn(this) : opts.inverse(this);
     },
   },
