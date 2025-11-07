@@ -1,6 +1,199 @@
 body { font-family: Arial, sans-serif; margin: 20px; }
-header { display:flex; justify-content:space-between; align-items:center; }
+header {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 nav a { margin-right: 8px; }
 .flash { padding:10px; border-radius:4px; margin-bottom:12px; }
 .flash-error { background:#f8d7da; color:#842029; }
 .flash-success { background:#d1e7dd; color:#0f5132; }
+
+
+ul {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+li {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+li:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+li a {
+  font-size: 1.1rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+li p {
+  margin-top: 0.5rem;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+
+form {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+input[type="text"],
+input[name="title"],
+input[name="category"],
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button.delete,
+form[action="/ideas/delete"] button {
+  background: #ef4444;
+}
+
+button.delete:hover,
+form[action="/ideas/delete"] button:hover {
+  background: #dc2626;
+}
+
+/* ---------- CONTAINER DE PERFIL ---------- */
+.profile-container form{
+  max-width: 420px;
+  margin: 3rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  padding: 2rem 2.5rem;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+/* ---------- TÍTULOS ---------- */
+.profile-container h2 {
+  color: #1f2937;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+/* ---------- FORMULÁRIOS ---------- */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.profile-container label {
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.3rem;
+}
+
+.profile-container input[type="text"],
+.profile-container input[type="email"],
+.profile-container input[type="password"] {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.profile-container input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  outline: none;
+}
+
+/* ---------- BOTÕES ---------- */
+.profile-container button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.profile-container button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* ---------- LINK ENTRE LOGIN E REGISTRO ---------- */
+.profile-container a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.profile-container a:hover {
+  text-decoration: underline;
+}
+
