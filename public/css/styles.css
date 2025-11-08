@@ -330,3 +330,12 @@ button:disabled {
   background: #9ca3af;
   cursor: not-allowed;
 }
+
+.logout-form {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  display: inline;
+}

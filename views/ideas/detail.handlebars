@@ -19,14 +19,20 @@
     </form>
   {{/if}}
 
-  {{#ifEquals idea.author._id ../currentUser._id}}
-    <a href="/ideas/edit/{{idea._id}}">Editar</a>
-    <form action="/ideas/delete" method="post" style="display:inline;">
-      <input type="hidden" name="_csrf" value="{{csrfToken}}">
-      <input type="hidden" name="id" value="{{idea._id}}">
-      <button type="submit">Excluir</button>
-    </form>
-  {{/ifEquals}}
+  {{#if isAuthor}}
+    <div style="margin-top: 1rem;">
+      <form action="/ideas/edit/{{idea._id}}" method="get" style="display:inline;">
+        <button type="submit" class="button edit">Editar</button>
+      </form>
+
+      <form action="/ideas/delete" method="post" style="display:inline;">
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <input type="hidden" name="id" value="{{idea._id}}">
+        <button type="submit" class="delete">Excluir</button>
+      </form>
+    </div>
+  {{/if}}
+
 {{else}}
   <p><a href="/login">Entre</a> para votar.</p>
 {{/if}}

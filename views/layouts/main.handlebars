@@ -13,8 +13,10 @@
       {{#if currentUser}}
         <a href="/ideas/create">Criar</a>
         <a href="/ideas/my/ideas">Meu Perfil</a>
-        <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <button type="submit">Sair</button>
+        <form action="/logout" method="POST" class="logout-form">
+          <input type="hidden" name="_csrf" value="{{csrfToken}}">
+          <button type="submit">Sair</button>
+        </form>
         <span>Olá, {{currentUser.name}}</span>
       {{else}}
         <a href="/login">Login</a> | <a href="/register">Registrar</a>
