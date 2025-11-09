@@ -1,341 +1,268 @@
-body { font-family: Arial, sans-serif; margin: 20px; }
+/* === BASE GERAL === */
+body {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  background-color: #FAFAFA;
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+}
+
+/* === CABEÇALHO === */
 header {
-  background: #fff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 1rem 2rem;
+  background: #0D2787;
+  padding: 1.2rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 header h1 {
-  font-size: 1.5rem;
-  color: #2563eb;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  color: #ECEEF8;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0;
 }
 
-nav a { margin-right: 8px; }
 nav {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 nav a {
-  color: #2563eb;
-  text-decoration: none;
+  color: #ECEEF8;
   font-weight: 500;
+  text-decoration: none;
   transition: color 0.2s;
 }
 
 nav a:hover {
-  color: #1d4ed8;
+  color: #8FCF92;
   text-decoration: underline;
 }
 
-nav span {
-  color: #4b5563;
-  font-size: 0.9rem;
+/* === BOTÃO SAIR === */
+.logout-form {
+  display: inline-block;
 }
 
-nav button {
-  background: #ef4444;
-  color: #fff;
+.logout-form button {
+  background: #D16F6F;
   border: none;
-  border-radius: 6px;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s;
-}
-
-nav button:hover {
-  background: #dc2626;
-}
-.flash { padding:10px; border-radius:4px; margin-bottom:12px; }
-.flash-error { background:#f8d7da; color:#842029; }
-.flash-success { background:#d1e7dd; color:#0f5132; }
-
-
-ul {
-  list-style: none;
-  margin-bottom: 2rem;
-}
-
-li {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 1rem 1.2rem;
-  margin-bottom: 1rem;
-  transition: box-shadow 0.2s ease, transform 0.1s ease;
-}
-
-li:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transform: translateY(-2px);
-}
-
-li a {
-  font-size: 1.1rem;
-  color: #2563eb;
-  text-decoration: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  color: #fff;
   font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 2px 4px rgba(209, 111, 111, 0.3);
 }
 
-li a:hover {
-  text-decoration: underline;
+.logout-form button:hover {
+  background: #b64c4c;
+  transform: translateY(-1px);
 }
 
-li p {
-  margin-top: 0.5rem;
-  color: #4b5563;
-  font-size: 0.95rem;
+/* === CONTEÚDO PRINCIPAL === */
+main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
 }
 
-
+/* === FORMULÁRIOS === */
 form {
   background: #fff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #ECEEF8;
   border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  padding: 2rem 2.5rem;
+  box-shadow: 0 4px 10px rgba(13, 39, 135, 0.05);
+  transition: transform 0.2s ease;
+}
+
+form:hover {
+  transform: translateY(-2px);
 }
 
 label {
   display: block;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
   font-weight: 500;
-  color: #374151;
+  color: #344EAD;
+  font-size: 0.95rem;
 }
 
 input[type="text"],
-input[name="title"],
-input[name="category"],
+input[type="email"],
+input[type="password"],
 textarea {
   width: 100%;
-  padding: 0.6rem;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 0.75rem 0.9rem;
   margin-bottom: 1rem;
-  transition: border-color 0.2s;
+  border: 1px solid #A6B1D9;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #ECEEF8;
+  transition: all 0.2s ease;
 }
 
 input:focus,
 textarea:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-}
-
-textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-button.delete,
-form[action="/ideas/delete"] button {
-  background: #ef4444;
-}
-
-button.delete:hover,
-form[action="/ideas/delete"] button:hover {
-  background: #dc2626;
-}
-
-/* ---------- CONTAINER DE PERFIL ---------- */
-.profile-container form{
-  max-width: 420px;
-  margin: 3rem auto;
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  padding: 2rem 2.5rem;
-  text-align: center;
-  border: 1px solid #e5e7eb;
-}
-
-/* ---------- TÍTULOS ---------- */
-.profile-container h2 {
-  color: #1f2937;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 0.5rem;
-}
-
-/* ---------- FORMULÁRIOS ---------- */
-.auth-container {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin-bottom: 2rem;
-}
-
-.auth-container label {
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 0.3rem;
-}
-
-.auth-container input[type="text"],
-.auth-container input[type="email"],
-.auth-container input[type="password"],
-.auth-container input[type="name"] {
-  width: 100%;
-  padding: 0.7rem;
-  margin-bottom: 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.auth-container input:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  border-color: #344EAD;
+  box-shadow: 0 0 0 3px rgba(52, 78, 173, 0.2);
   outline: none;
 }
 
-/* ---------- BOTÕES ---------- */
-.auth-container button {
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.7rem;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-}
-
-.auth-container button:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
-}
-
-/* ---------- LINK ENTRE LOGIN E REGISTRO ---------- */
-.auth-container a {
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-.auth-container a:hover {
-  text-decoration: underline;
-}
-
-/* === Estilo da página de perfil === */
-.profile-container {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 30px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  font-family: "Inter", sans-serif;
-}
-
-.profile-container h2 {
-  color: #1e293b;
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  border-bottom: 3px solid #2563eb;
-  display: inline-block;
-  padding-bottom: 5px;
-}
-
-.profile-container h3 {
-  color: #334155;
-  margin-top: 30px;
-  font-size: 1.4rem;
-}
-
-.profile-container p {
-  color: #475569;
-  margin: 8px 0;
-}
-
-.profile-container ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-.profile-container li {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin-bottom: 8px;
-  transition: 0.2s ease;
-}
-
-.profile-container li:hover {
-  background: #eef2ff;
-  border-color: #c7d2fe;
-}
-
-.profile-container a {
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.profile-container a:hover {
-  text-decoration: underline;
-}
-button.delete,
-form[action="/ideas/delete"] button {
-  background: #ef4444;
-}
-
-button.delete:hover,
-form[action="/ideas/delete"] button:hover {
-  background: #dc2626;
-}
-
+/* === BOTÕES === */
 button,
 a.button {
-  display: inline-block;
-  background: #2563eb;
-  color: white;
+  background: #344EAD;
+  color: #ffffff;
   border: none;
-  border-radius: 8px;
-  padding: 0.6rem 1.2rem;
-  cursor: pointer;
+  border-radius: 10px;
+  padding: 0.8rem 1.6rem;
   font-size: 1rem;
-  font-weight: 500;
-  transition: background 0.2s, transform 0.1s;
-  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.1s ease;
+  box-shadow: 0 3px 10px rgba(52, 78, 173, 0.3);
 }
 
 button:hover,
 a.button:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
+  background: #0D2787;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(13, 39, 135, 0.3);
 }
 
-button:disabled {
-  background: #9ca3af;
-  cursor: not-allowed;
+/* === VARIAÇÕES DE BOTÕES === */
+button.delete {
+  background: #D16F6F;
 }
 
-.logout-form {
+button.delete:hover {
+  background: #b64c4c;
+}
+
+button.edit {
+  background: #8FCF92;
+  color: #0D2787;
+}
+
+button.edit:hover {
+  background: #78b97c;
+}
+
+.inline-form {
   background: none;
   border: none;
+  box-shadow: none;
   padding: 0;
   margin: 0;
-  box-shadow: none;
   display: inline;
+}
+
+/* === CONTAINERS === */
+.auth-container,
+.profile-container {
+  background: #fff;
+  border: 1px solid #ECEEF8;
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 550px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.profile-container h2,
+.auth-container h2 {
+  color: #0D2787;
+  font-size: 1.6rem;
+  border-bottom: 3px solid #344EAD;
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+/* === LISTAS === */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 1rem; 
+  transition: all 0.2s ease;
+} 
+
+
+/* === FLASH MESSAGES === */
+.flash {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.flash-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.flash-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* === HEADERS DE SEÇÃO === */
+h2, h3 {
+  font-weight: 600;
+  color: #0D2787;
+}
+
+/* === CAMPOS DE FORMULÁRIO PEQUENOS (LOGIN/REGISTRO) === */
+.auth-container input,
+.auth-container textarea {
+  background: #ECEEF8;
+  border: 1px solid #A6B1D9;
+  border-radius: 10px;
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.auth-container input:focus,
+.auth-container textarea:focus {
+  background: #fff;
+  border-color: #344EAD;
+  box-shadow: 0 0 0 3px rgba(52, 78, 173, 0.2);
+  outline: none;
+}
+
+
+/* === ROLAGEM SUAVE === */
+html {
+  scroll-behavior: smooth;
+}
+
+
+.idea-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #ECEEF8;
+  border: 1px solid #A6B1D9;
+  border-radius: 10px;
+  padding: 1.2rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.idea-link:hover {
+  background: #DDE1F6;
+  border-color: #778AD0;
+  text-decoration: none;
+  transform: translateY(-2px);
 }

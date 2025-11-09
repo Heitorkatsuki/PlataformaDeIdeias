@@ -1,11 +1,13 @@
-<h2>Criar Ideia</h2>
-<form action="/ideas/create" method="post">
-  <input type="hidden" name="_csrf" value="{{csrfToken}}" />
-  <label>Título</label><br /><input name="title" required /><br />
-  <label>Categoria</label><br /><input name="category" required /><br />
-  <label>Descrição</label><br /><textarea
-    name="description"
-    required
-  ></textarea><br /><br />
-  <button type="submit">Criar</button>
-</form>
+<div class="auth-container">
+  <h2>Criar Ideia</h2>
+  <form action="/ideas/create" method="post">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}" />
+    <label>Título</label><br /><input name="title" required /><br />
+    <label>Categoria</label><br /><input name="category" required /><br />
+    <label>Descrição</label><br /><textarea
+      name="description"
+      required
+    ></textarea><br /><br />
+    <button type="submit">Criar</button>
+  </form>
+</div>

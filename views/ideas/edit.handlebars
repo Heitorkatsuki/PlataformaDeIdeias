@@ -1,20 +1,22 @@
-<h2>Editar Ideia</h2>
-<form action="/ideas/edit" method="post">
-  <input type="hidden" name="_csrf" value="{{csrfToken}}" />
-  <input type="hidden" name="id" value="{{idea._id}}" />
-  <label>Título</label><br /><input
-    name="title"
-    value="{{idea.title}}"
-    required
-  /><br />
-  <label>Categoria</label><br /><input
-    name="category"
-    value="{{idea.category}}"
-    required
-  /><br />
-  <label>Descrição</label><br /><textarea
-    name="description"
-    required
-  >{{idea.description}}</textarea><br /><br />
-  <button type="submit">Salvar</button>
-</form>
+<div class="auth-container">
+  <h2>Editar Ideia</h2>
+  <form action="/ideas/edit" method="post">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}" />
+    <input type="hidden" name="id" value="{{idea._id}}" />
+    <label>Título</label><br /><input
+      name="title"
+      value="{{idea.title}}"
+      required
+    /><br />
+    <label>Categoria</label><br /><input
+      name="category"
+      value="{{idea.category}}"
+      required
+    /><br />
+    <label>Descrição</label><br /><textarea
+      name="description"
+      required
+    >{{idea.description}}</textarea><br /><br />
+    <button type="submit">Salvar</button>
+  </form>
+</div>

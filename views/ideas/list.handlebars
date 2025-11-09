@@ -3,12 +3,14 @@
   <ul>
     {{#each ideas}}
       <li>
-        <a href="/ideas/{{this._id}}"><strong>{{this.title}}</strong></a>
-        -
-        {{this.category}}
-        - Votos:
-        {{this.voteCount}}
-        <p>{{this.description}}</p>
+        <a class="idea-link" href="/ideas/{{this._id}}">
+          <strong style="color:#0D2787 ;">{{this.title}}</strong>
+          -
+          {{this.category}}
+          - Votos:
+          {{this.voteCount}}
+          <p>{{this.description}}</p>
+        </a>
       </li>
     {{/each}}
   </ul>
